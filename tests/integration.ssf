@@ -1,0 +1,13 @@
+requires 1.4.0
+load tests/data/umaj_solved.fit
+pyscript SkyChartExporter.py --out tests/output/siril_umaj_ja.pdf --preset standard --memo "siril-cli テスト"
+pyscript SkyChartExporter.py --out tests/output/siril_umaj_en.pdf --lang en --preset detailed --theme dark --page A3
+load tests/data/m42_linear.fit
+pyscript SkyChartExporter.py --out tests/output/siril_m42.pdf --memo "合成画像（リニア 32 ビット）の試験。オートストレッチと狭視野の注記を確認する。"
+pyscript SkyChartExporter.py --out tests/output/siril_m42_unlinked_wide.pdf --stretch unlinked --page Wide --no-stellarium --preset all
+load tests/data/m42_linear_u16.fit
+pyscript SkyChartExporter.py --out tests/output/siril_m42_u16_linear.pdf
+load tests/data/m42_linear_stretched_u16.fit
+pyscript SkyChartExporter.py --out tests/output/siril_m42_u16_stretched.pdf
+load tests/data/unsolved.jpg
+pyscript SkyChartExporter.py --out tests/output/should_not_exist.pdf
